@@ -4,8 +4,12 @@ from pandas import ExcelWriter
 
 
 #IF NOT MATT SPARROW, change file path name to the location on your computer, make sure not to mix up the two
+#Table length of 289k
 list1 = pd.ExcelFile(r"C:\Users\Matthew Sparrow\Documents\datasets\university-of-california-2017.xlsx")
+#Table length of 22.3k
 list2 = pd.ExcelFile(r"C:\Users\Matthew Sparrow\Documents\datasets\useraaddqwdqfqegent.timelapse_table.xlsx")
+#Table length of 20k
+#list2 = pd.ExcelFile(r"C:\Users\Matthew Sparrow\Documents\datasets\matt1_table.xlsx")
 
 #Parse excel data
 df2 = pd.read_excel(list2, 0)
@@ -16,7 +20,7 @@ normalList1 = list()
 
 print('Excel Files Read')
 
-for j in range(1, 22330):
+for j in range(1, len(df2)):
    # flagSmall = 0
     #for k in range(0, 6):
     #Extract only the first name columns from directories in order to match names
@@ -73,7 +77,7 @@ for j in range(1, 22330):
     normalList2.append(normal)
     #print(normal + ' Small-File')
 
-for j in range(1, 298000):
+for j in range(1, len(df1)):
     nameList1 = df1.iloc[j, 0]
     flag2 = 0
 
@@ -112,6 +116,7 @@ for j in range(0,len(normalList2)):
         midpoint = (first + last) // 2
         if(normalList2[j] == normalList1[midpoint]):
             matchCount = matchCount + 1
+            #print(str(matchCount) + ' ' + normalList2[j])
             found = 1
         else:
             if normalList2[j] < normalList1[midpoint]:
