@@ -76,7 +76,7 @@ for j in range(1, len(df2)):
     normal = (firstName + lastName).lower()
     normalList2.append(normal)
     #print(normal + ' Small-File')
-
+print("List 2 normalized, " + str(len(df2)) + " entries found")
 for j in range(1, len(df1)):
     nameList1 = df1.iloc[j, 0]
     flag2 = 0
@@ -102,12 +102,13 @@ for j in range(1, len(df1)):
     normalList1.append(normal2)
     #print(normal2 + ' Large-File')
 
+print("List 1 normalized, " + str(len(df1)) + " entries found")
 matchCount = 0
-
+print('Sorting...')
 normalList1.sort()
 normalList2.sort()
 
-
+print("Checking for matches...")
 for j in range(0,len(normalList2)):
     found = 0
     first = j
